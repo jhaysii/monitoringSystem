@@ -353,7 +353,12 @@ global $mydb;
 
   	$sql ="SELECT * FROM `tbltimetable`  WHERE  `StudentID`='{$id}' AND  date(`AttendDate`)='{$date}'";
  	$mydb->setQuery($sql); 
+	
+		// $result = $mydb->executeQuery();  
+		// $max = $mydb->num_rows($result);
  	$row = $mydb->loadSingleResult();
+
+	 $max = $mydb->num_rows($row);
 
  	 $tfrom= time_from($row->$tfield);
      $tto = time_to($time_now);
